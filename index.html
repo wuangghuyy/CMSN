@@ -130,36 +130,17 @@
             notePopup.style.display = 'none'; // Ẩn popup
         }
 
-        async function saveNote() {
-            const inputElement = document.getElementById('noteText'); // Phần tử input lời chúc
-            const message = inputElement.value.trim();
+        function saveNote() {
+    const noteText = document.getElementById('noteText').value;
+    if (noteText.trim()) {
+        alert('Lời ước của bạn: ' + noteText); // Hiển thị lời ước
 
-            if (!message) {
-                alert('Vui lòng nhập lời chúc!');
-                return;
-            }
-
-            try {
-                const response = await fetch('http://localhost:5000/api/wishes', {
-                    method: 'POST', // Phương thức POST
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message }), // Gửi dữ liệu lời chúc
-                });
-
-                const data = await response.json();
-                if (data.success) {
-                    alert('Thanks kiu so much!');
-
-                    inputElement.value = ''; // Xóa nội dung ô nhập
-                    closeNote();
-                } else {
-                    alert('Lưu lời chúc thất bại!');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Có lỗi xảy ra, vui lòng thử lại sau!');
-            }
-        }
+        closeNote(); // Đóng popup sau khi lưu
+        window.location.href = "thankyou.html";
+    } else {
+        alert('Vui lòng nhập lời ước!');
+    }
+}
 
     </script>
 
