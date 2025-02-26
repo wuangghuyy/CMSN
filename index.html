@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinh nhật em Phương ♥</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div class="wrapper">
+
+
         <!-- Sidebar bên trái: Bánh kem sinh nhật -->
         <div class="sidebar left">
             <div class="cake">
@@ -65,11 +70,11 @@
                 </div>
                 <button onclick="showGift()">Nhấn vào đây</button>
                 <div class="gift-message" id="giftMessage">
-                    🎁 À thì chúc em tuổi mới có nhìu sức khỏe, xinh đẹp hơn, có nhiều thời gian trò chuyện với anh hơn, ước hôm nào cũng là chủ nhật :v. A hết văn rồi hạt nhài quá đi lại còn hướng nội haha. Ncl tuổi mới chúc e cái gì cũng mới nha.🎉
+
                 </div>
             </div>
         </div>
-        
+
         <!-- Sidebar bên phải: Hộp quà sinh nhật -->
         <div class="sidebar right">
             <div class="gift-box">
@@ -86,10 +91,86 @@
     </div>
 
     <script>
+        let typingInterval; // Biến lưu khoảng thời gian gõ chữ
+
         function showGift() {
             const giftMessage = document.getElementById('giftMessage');
-            giftMessage.classList.toggle('show');
+            const text = " À thì chúc em tuổi mới có nhìu sức khỏe, xinh đẹp hơn, có nhiều thời gian trò chuyện với anh hơn, ước hôm nào cũng là chủ nhật :v. A hết văn rồi hạt nhài quá đi lại còn hướng nội haha. Ncl tuổi mới chúc e cái gì cũng mới nha.";
+
+            // Nếu đang hiển thị, ẩn đi và dừng hiệu ứng gõ
+            if (giftMessage.classList.contains('show')) {
+                giftMessage.classList.remove('show'); // Ẩn khung
+                giftMessage.innerHTML = ""; // Xóa nội dung
+                clearInterval(typingInterval); // Dừng hiệu ứng gõ
+                return;
+            }
+
+            // Hiển thị khung tin nhắn và bắt đầu gõ lại
+            let index = 0;
+            giftMessage.innerHTML = ""; // Đảm bảo nội dung được xóa trước
+            giftMessage.classList.add('show'); // Hiển thị khung tin nhắn
+
+            // Hàm gõ từng chữ
+            typingInterval = setInterval(() => {
+                if (index < text.length) {
+                    giftMessage.innerHTML += text.charAt(index); // Thêm từng ký tự
+                    index++;
+                } else {
+                    clearInterval(typingInterval); // Dừng gõ khi hoàn tất
+                }
+            }, 50); // Gõ ký tự mới sau mỗi 50ms
         }
+        function openNote() {
+            const notePopup = document.getElementById('notePopup');
+            notePopup.style.display = 'block'; // Hiển thị popup
+        }
+
+        function closeNote() {
+            const notePopup = document.getElementById('notePopup');
+            notePopup.style.display = 'none'; // Ẩn popup
+        }
+
+        async function saveNote() {
+            const inputElement = document.getElementById('noteText'); // Phần tử input lời chúc
+            const message = inputElement.value.trim();
+
+            if (!message) {
+                alert('Vui lòng nhập lời chúc!');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/wishes', {
+                    method: 'POST', // Phương thức POST
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message }), // Gửi dữ liệu lời chúc
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Thanks kiu so much!');
+
+                    inputElement.value = ''; // Xóa nội dung ô nhập
+                    closeNote();
+                } else {
+                    alert('Lưu lời chúc thất bại!');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra, vui lòng thử lại sau!');
+            }
+        }
+
     </script>
+
+
+    <button class="note-button" onclick="openNote()">📝</button>
+    <div id="notePopup" class="note-popup">
+        <textarea id="noteText" placeholder="Viết lời ước của bạn tại đây..."></textarea>
+        <button onclick="saveNote()">Lưu</button>
+        <button onclick="closeNote()">Đóng</button>
+    </div>
+
 </body>
+
 </html>

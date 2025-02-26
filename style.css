@@ -340,20 +340,142 @@ button:active {
 
 .gift-message {
     display: none;
-    opacity: 0;
-    transform: scale(0.9);
+    opacity: 1; /* Hiển thị khung */
     margin-top: 20px;
-    background: #ffefd5;
-    border-radius: 10px;
-    padding: 15px;
-    font-size: 14px;
-    color: #555;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    background: linear-gradient(135deg, #ffe6e6, #fff0c1); /* Hiệu ứng màu nền chuyển nhẹ */
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font chữ hiện đại */
+    color: #444; /* Màu chữ dễ nhìn */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng rõ hơn */
+    border: 1px solid #ffd700; /* Đường viền vàng nhẹ */
+    white-space: pre-wrap; /* Đảm bảo xuống dòng đúng */
+    line-height: 1.6; /* Khoảng cách dòng hợp lý */
+    word-wrap: break-word; /* Xuống dòng khi quá dài */
+    text-align: justify; /* Căn đều đoạn văn */
+    animation: fadeIn 0.5s ease-in-out; /* Hiệu ứng mờ khi hiện ra */
+    position: relative; /* Cho phép chèn thêm chi tiết */
 }
 
+/* Khi hiển thị */
 .gift-message.show {
     display: block;
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
 }
+
+/* Thêm hiệu ứng "fade in" */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Thêm hiệu ứng góc hoặc chi tiết */
+.gift-message:before {
+    content: "🎉"; /* Thêm biểu tượng trang trí */
+    font-size: 24px;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    color: #ff6f61;
+}
+
+.gift-message:after {
+    content: "🎁"; /* Thêm biểu tượng trang trí ở góc */
+    font-size: 24px;
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    color: #ff6f61;
+}
+
+.note-button {
+    position: fixed; /* Cố định vị trí */
+    top: 20px; /* Cách cạnh trên 20px */
+    right: 20px; /* Cách cạnh phải 20px */
+    background-color: #ffcc00; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    border: none; /* Loại bỏ viền */
+    border-radius: 50%; /* Bo tròn nút */
+    width: 60px; /* Chiều rộng nút */
+    height: 60px; /* Chiều cao nút */
+    display: flex; /* Kích hoạt flexbox */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    font-size: 24px; /* Kích thước biểu tượng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+    cursor: pointer; /* Hiển thị con trỏ dạng nút */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+/* Hiệu ứng khi di chuột vào nút */
+.note-button:hover {
+    transform: scale(1.1); /* Phóng to nút khi hover */
+    background-color: #ffa500; /* Đổi màu nút khi hover */
+}
+.note-popup {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff8e1; /* Màu nền nhẹ, hài hòa */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 320px;
+    z-index: 1000;
+    text-align: center; /* Canh giữa nội dung */
+}
+
+.note-popup textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    resize: none;
+    outline: none; /* Loại bỏ viền khi focus */
+    background: #ffffff;
+}
+
+.note-popup button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition:  0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+.note-popup button:first-child {
+    background: #4caf50;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.note-popup button:first-child:hover {
+    background: #45a049;
+}
+
+.note-popup button:last-child {
+    background: #f44336;
+    color: #fff;
+}
+
+.note-popup button:last-child:hover {
+    background: #e53935;
+}
+
