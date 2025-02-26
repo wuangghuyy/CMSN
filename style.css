@@ -401,15 +401,16 @@ button:active {
     top: 20px; /* Cách cạnh trên 20px */
     right: 20px; /* Cách cạnh phải 20px */
     background-color: #ffcc00; /* Màu nền */
-    color: #fff; /* Màu chữ */
+   
+    color: #333; /* Màu chữ */
     border: none; /* Loại bỏ viền */
     border-radius: 50%; /* Bo tròn nút */
-    width: 60px; /* Chiều rộng nút */
-    height: 60px; /* Chiều cao nút */
+    width: 200px; /* Chiều rộng nút */
+    height: 100px; /* Chiều cao nút */
     display: flex; /* Kích hoạt flexbox */
     align-items: center; /* Căn giữa theo chiều dọc */
     justify-content: center; /* Căn giữa theo chiều ngang */
-    font-size: 24px; /* Kích thước biểu tượng */
+    font-size: 20px; /* Kích thước biểu tượng */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
     cursor: pointer; /* Hiển thị con trỏ dạng nút */
     transition: transform 0.3s ease, background-color 0.3s ease; /* Hiệu ứng khi hover */
