@@ -1,0 +1,359 @@
+/* Tổng quát cho toàn bộ trang */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+}
+
+.sidebar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Bánh kem sinh nhật */
+.sidebar.left .cake {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Đĩa đựng bánh */
+.sidebar.left .cake .plate {
+    width: 140px;
+    height: 20px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+/* Các lớp bánh */
+.sidebar.left .cake .layer {
+    position: relative;
+    border-radius: 10px;
+    margin-top: 5px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.left .cake .layer.bottom {
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffcccb, #ff9999);
+}
+
+.sidebar.left .cake .layer.middle {
+    width: 90px;
+    height: 35px;
+    background: linear-gradient(135deg, #ffa07a, #ff8c69);
+}
+
+.sidebar.left .cake .layer.top {
+    width: 60px;
+    height: 30px;
+    background: linear-gradient(135deg, #ff8c69, #ff6f61);
+}
+
+/* Nến trên bánh */
+.sidebar.left .cake .candles {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: -35px;
+}
+
+.sidebar.left .cake .candle {
+    width: 10px;
+    height: 30px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.left .cake .candle:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #f54242,
+        #f54242 5px,
+        #f5f5f5 5px,
+        #f5f5f5 10px
+    );
+    border-radius: 5px;
+}
+
+/* Ngọn lửa nến */
+.sidebar.left .cake .candle .flame {
+    width: 8px;
+    height: 12px;
+    background: radial-gradient(circle, yellow 60%, orange 80%);
+    position: absolute;
+    top: -15px;
+    left: 1px;
+    border-radius: 50%;
+    animation: flicker 0.6s infinite;
+}
+
+/* Hộp quà */
+.sidebar.right .gift-box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: #87ceeb;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar.right .gift-box .ribbon-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: #ff6347;
+    top: 45%;
+}
+
+.sidebar.right .gift-box .ribbon-vertical {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background: #ff6347;
+    left: 45%;
+}
+
+.sidebar.right .gift-box .bow {
+    position: absolute;
+    top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar.right .gift-box .knot {
+    width: 15px;
+    height: 15px;
+    background: #ff6347;
+    border-radius: 50%;
+}
+
+.sidebar.right .gift-box .loop {
+    width: 20px;
+    height: 10px;
+    background: #ff6347;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.sidebar.right .gift-box .loop.loop-left {
+    transform: rotate(-45deg);
+    left: -15px;
+}
+
+.sidebar.right .gift-box .loop.loop-right {
+    transform: rotate(45deg);
+    right: -15px;
+}
+
+/* Balloons */
+.container {
+    flex: 3;
+    text-align: center;
+    position: relative;
+}
+
+.balloons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.balloon {
+    width: 60px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ff6f61;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.6);
+    animation: float 6s ease-in-out infinite, sway 4s ease-in-out infinite;
+    position: relative;
+    transform-origin: bottom center;
+}
+
+/* Nhân vật chính */
+.image-container {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    border: 5px solid #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 70%);
+    animation: sparkle 4s infinite;
+    opacity: 0.8;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+/* Thiệp chúc mừng */
+.card {
+    margin-top: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 400px;
+    text-align: center;
+    margin: 20px auto;
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 20px;
+    color: #333;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease;
+}
+
+.gift-message {
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+    margin-top: 20px;
+    background: #ffefd5;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gift-message.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}

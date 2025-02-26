@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Balloons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar bên trái: Bánh kem sinh nhật -->
+        <div class="sidebar left">
+            <div class="cake">
+                <div class="plate"></div>
+                <div class="layer bottom"></div>
+                <div class="layer middle"></div>
+                <div class="layer top"></div>
+                <div class="candles">
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nội dung chính -->
+        <div class="container">
+            <div class="balloons row-happy">
+                <!-- Hàng "HAPPY" -->
+                <div class="balloon" style="background-color: #f54242;" data-letter="H">H</div>
+                <div class="balloon" style="background-color: #f58c42;" data-letter="A">A</div>
+                <div class="balloon" style="background-color: #f5dc42;" data-letter="P">P</div>
+                <div class="balloon" style="background-color: #42f554;" data-letter="P">P</div>
+                <div class="balloon" style="background-color: #42e9f5;" data-letter="Y">Y</div>
+            </div>
+
+            <div class="balloons row-birthday">
+                <!-- Hàng "BIRTHDAY" -->
+                <div class="balloon" style="background-color: #f542dd;" data-letter="B">B</div>
+                <div class="balloon" style="background-color: #42a4f5;" data-letter="I">I</div>
+                <div class="balloon" style="background-color: #dd42f5;" data-letter="R">T</div>
+                <div class="balloon" style="background-color: #f54288;" data-letter="T">T</div>
+                <div class="balloon" style="background-color: #42f5c3;" data-letter="H">H</div>
+                <div class="balloon" style="background-color: #f5a742;" data-letter="D">D</div>
+                <div class="balloon" style="background-color: #42f5e1;" data-letter="A">A</div>
+                <div class="balloon" style="background-color: #42f5f5;" data-letter="Y">Y</div>
+            </div>
+            <div class="image-container">
+                <img width="120" height="150" src=".//img/z6354264328589_01acfc72c10f5b2d74c782cdecb466bc.jpg" alt="">
+            </div>
+
+            <!-- Thiệp chúc mừng -->
+            <div class="card">
+                <div class="card-header">
+                    Chúc Mừng Sinh Nhật em Phương!
+                </div>
+                <div class="card-body">
+                    À nhong xê ô :v Chúc buổi sáng rồi nhưng anh vẫn muốn chúc tiếp
+                </div>
+                <button onclick="showGift()">Nhấn vào đây</button>
+                <div class="gift-message" id="giftMessage">
+                    🎁 À thì chúc em tuổi mới có nhìu sức khỏe, xinh đẹp hơn, có nhiều thời gian trò chuyện với anh hơn, ước hôm nào cũng là chủ nhật :v. A hết văn rồi hạt nhài quá đi lại còn hướng nội haha. Ncl tuổi mới chúc e cái gì cũng mới nha.🎉
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar bên phải: Hộp quà sinh nhật -->
+        <div class="sidebar right">
+            <div class="gift-box">
+                <div class="box"></div>
+                <div class="ribbon-horizontal"></div>
+                <div class="ribbon-vertical"></div>
+                <div class="bow">
+                    <div class="knot"></div>
+                    <div class="loop loop-left"></div>
+                    <div class="loop loop-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showGift() {
+            const giftMessage = document.getElementById('giftMessage');
+            giftMessage.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
